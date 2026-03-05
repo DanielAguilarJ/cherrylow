@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Services from "@/components/Services";
+import CustomDesigns from "@/components/CustomDesigns";
 import Catalog from "@/components/Catalog";
 import Photography from "@/components/Photography";
 import Contact from "@/components/Contact";
@@ -16,6 +17,8 @@ export default function Home() {
         <Hero />
         <Marquee />
         <Services />
+        <div className="section-divider" />
+        <CustomDesigns />
         <div className="section-divider" />
         <Catalog />
         <div className="section-divider" />

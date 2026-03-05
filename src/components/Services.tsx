@@ -1,11 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Camera, Shirt, Car, Palette, ArrowRight, MessageCircle } from "lucide-react";
+import Image from "next/image";
+import { Camera, Shirt, Car, ArrowRight, MessageCircle } from "lucide-react";
 
 const services = [
   {
     icon: Shirt,
+    image: null,
+    href: null,
     title: "Camisetas Personalizadas",
     description:
       "Sublimación de alta calidad en camisetas y sudaderas. Tu diseño, tu estilo, tu marca personal.",
@@ -17,6 +20,8 @@ const services = [
   },
   {
     icon: Camera,
+    image: null,
+    href: null,
     title: "Sesiones de Foto",
     description:
       "Sesiones fotográficas profesionales para tu auto. Capturamos la esencia de tu máquina con estilo urbano.",
@@ -28,6 +33,8 @@ const services = [
   },
   {
     icon: Car,
+    image: null,
+    href: null,
     title: "Video Automotriz",
     description:
       "Producción de video profesional para tu auto. Rollings, showcases y contenido para redes sociales.",
@@ -38,13 +45,15 @@ const services = [
       "Hola!%20Me%20interesa%20un%20video%20automotriz%20profesional.%20%C2%BFQu%C3%A9%20paquetes%20manejan%20y%20qu%C3%A9%20incluye%3F",
   },
   {
-    icon: Palette,
+    icon: null,
+    image: "/designs/design-01.png",
     title: "Diseños Personalizados",
     description:
-      "Creamos diseños únicos para tu ropa o para plasmar en tu auto. Arte urbano con identidad propia.",
+      "Creamos diseños únicos para plasmar en tu auto. Arte urbano con identidad propia — sujeto a cotización.",
     price: "Cotizar",
     tag: "Custom",
     color: "cherry" as const,
+    href: "#disenos",
     waMessage:
       "Hola!%20Quiero%20un%20dise%C3%B1o%20personalizado%20para%20mi%20proyecto.%20%C2%BFMe%20pueden%20ayudar%20con%20ideas%20y%20cotizaci%C3%B3n%3F",
   },
@@ -110,9 +119,9 @@ export default function Services() {
               className="group relative"
             >
               <a
-                href={`https://wa.me/524493091644?text=${service.waMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={service.href ?? `https://wa.me/524493091644?text=${service.waMessage}`}
+                target={service.href ? "_self" : "_blank"}
+                rel={service.href ? undefined : "noopener noreferrer"}
                 className="block relative h-full p-8 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm hover:border-cherry/30 hover:bg-white/[0.05] transition-all duration-500 cursor-pointer"
               >
                 {/* Tag */}
@@ -122,13 +131,28 @@ export default function Services() {
                   {service.tag}
                 </span>
 
-                {/* Icon */}
-                <div className={`mt-6 mb-4 w-14 h-14 rounded-xl ${iconBgMap[service.color]} flex items-center justify-center transition-colors duration-300`}>
-                  <service.icon
-                    className={`w-7 h-7 ${iconColorMap[service.color]} group-hover:scale-110 transition-transform duration-300`}
-                    strokeWidth={1.5}
-                  />
-                </div>
+                {/* Icon or Image */}
+                {service.image ? (
+                  <div className="mt-6 mb-4 w-full h-36 rounded-xl overflow-hidden relative">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+                  </div>
+                ) : (
+                  <div className={`mt-6 mb-4 w-14 h-14 rounded-xl ${iconBgMap[service.color]} flex items-center justify-center transition-colors duration-300`}>
+                    {service.icon && (
+                      <service.icon
+                        className={`w-7 h-7 ${iconColorMap[service.color]} group-hover:scale-110 transition-transform duration-300`}
+                        strokeWidth={1.5}
+                      />
+                    )}
+                  </div>
+                )}
 
                 {/* Content */}
                 <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cherry transition-colors duration-300">{service.title}</h3>
@@ -141,7 +165,7 @@ export default function Services() {
                   </span>
                   <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-smoke/40 group-hover:text-cherry transition-colors duration-300">
                     <MessageCircle className="w-4 h-4" />
-                    Cotizar
+                    {service.href ? "Ver Diseños" : "Cotizar"}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   </span>
                 </div>
