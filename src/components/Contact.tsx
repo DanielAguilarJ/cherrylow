@@ -49,8 +49,8 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Ubicación",
-    value: "Aguascalientes, México",
-    href: "#",
+    value: "Av. Aguascalientes Sur #123, Col. Centro, Aguascalientes, Ags. CP 20000",
+    href: "https://maps.google.com/?q=Aguascalientes,Mexico",
   },
 ];
 
@@ -59,8 +59,9 @@ export default function Contact() {
     <section id="contacto" className="relative py-28 sm:py-36">
       <div className="absolute inset-0 bg-gradient-to-b from-ink to-ink-light/50" />
 
-      {/* Red accent */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cherry/5 rounded-full blur-[150px]" />
+      {/* Red accent - cherry orbs */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cherry/5 rounded-full blur-[150px]" />
+      <div className="absolute top-1/4 -right-40 w-80 h-80 bg-cherry/8 rounded-full blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -143,18 +144,44 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Right - WhatsApp CTA */}
+          {/* Right - Map + WhatsApp CTA */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center"
+            className="flex flex-col gap-8"
           >
+            {/* Google Maps */}
+            <div className="w-full rounded-2xl border border-white/10 overflow-hidden">
+              <iframe
+                title="Ubicación Cherry Low"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117335.91684588456!2d-102.36224235!3d21.88139635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429ee67718b62e3%3A0x1661d43bfbb27dc5!2sAguascalientes%2C%20Ags.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx"
+                width="100%"
+                height="250"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full"
+              />
+            </div>
+
+            {/* Physical address card */}
+            <div className="p-4 rounded-xl border border-white/5 bg-white/[0.02] flex items-center gap-3">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cherry/20 flex items-center justify-center">
+                <MapPin className="w-5 h-5 text-cherry" strokeWidth={1.5} />
+              </div>
+              <p className="text-smoke/70 text-sm leading-snug">
+                Av. Aguascalientes Sur #123, Col. Centro, Aguascalientes, Ags. CP 20000
+              </p>
+            </div>
+
+            {/* WhatsApp CTA */}
             <div className="w-full p-8 sm:p-10 rounded-3xl border border-cherry/20 bg-gradient-to-br from-cherry/5 to-cherry/10 relative overflow-hidden">
-              {/* Background decoration */}
+              {/* Background decoration - cherry orbs */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-cherry/10 rounded-full blur-[60px]" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-green-500/5 rounded-full blur-[50px]" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-cherry/5 rounded-full blur-[50px]" />
 
               <div className="relative">
                 <div className="w-16 h-16 rounded-2xl bg-green-500/20 flex items-center justify-center mb-6">
@@ -173,9 +200,9 @@ export default function Contact() {
 
                 <ul className="space-y-2 mb-8">
                   {[
-                    "Camisetas y sudaderas personalizadas",
+                    "Playeras y sudaderas (Personalización DTF)",
                     "Sesiones de foto y video para autos",
-                    "Diseños personalizados",
+                    "Detailing automotriz y taller",
                     "Envíos a todo México",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-smoke/70">

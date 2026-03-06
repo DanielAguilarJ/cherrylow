@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const heroImages = [
+  { src: "/tshirt-cherry-wheels.jpg", alt: "Cherry Low Merch" },
   { src: "/hero-1.jpg", alt: "Cherry Low Streetwear" },
   { src: "/hero-2.jpg", alt: "Cherry Low Automotive" },
   { src: "/hero-3.jpg", alt: "Cherry Low Photography" },
@@ -17,10 +18,9 @@ const driftConfigs = [
   { fromX: "-2%", toX: "2%", fromY: "-1%", toY: "1%" },
   { fromX: "2%", toX: "-2%", fromY: "1%", toY: "-1%" },
   { fromX: "-1%", toX: "1%", fromY: "2%", toY: "-2%" },
+  { fromX: "1%", toX: "-1%", fromY: "-2%", toY: "2%" },
 ];
 
-const WA_CATALOG =
-  "https://wa.me/524493091644?text=Hola!%20Me%20interesa%20ver%20el%20cat%C3%A1logo%20de%20Cherry%20Low.%20%C2%BFQu%C3%A9%20productos%20tienen%20disponibles%3F";
 const WA_QUOTE =
   "https://wa.me/524493091644?text=Hola!%20Vi%20su%20p%C3%A1gina%20y%20me%20interesa%20cotizar%20un%20servicio%20de%20Cherry%20Low.%20%C2%BFMe%20pueden%20ayudar%3F";
 
@@ -171,12 +171,10 @@ export default function Hero() {
               className="mt-10 flex flex-col sm:flex-row gap-4"
             >
               <a
-                href={WA_CATALOG}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#merch"
                 className="group relative px-8 py-4 bg-cherry text-white font-bold uppercase tracking-wider rounded-full overflow-hidden transition-all duration-300 hover:scale-105 glow-cherry text-center"
               >
-                <span className="relative z-10">Ver Catálogo</span>
+                <span className="relative z-10">Ver Playeras</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-cherry-dark to-cherry opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </a>
               <a
@@ -185,7 +183,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="group px-8 py-4 border-2 border-white/30 text-white font-bold uppercase tracking-wider rounded-full hover:bg-cherry/10 hover:border-cherry transition-all duration-300 backdrop-blur-sm text-center"
               >
-                Cotizar Ahora
+                Cotizar por WhatsApp
               </a>
             </motion.div>
 
@@ -201,7 +199,7 @@ export default function Hero() {
                   $380
                 </p>
                 <p className="text-xs sm:text-sm text-ash uppercase tracking-wider">
-                  Sublimación
+                  Personalización DTF
                 </p>
               </div>
               <div className="w-px bg-white/10" />

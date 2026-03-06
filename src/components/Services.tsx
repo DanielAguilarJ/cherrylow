@@ -1,90 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { Camera, Shirt, Car, ArrowRight, MessageCircle } from "lucide-react";
+import { Paintbrush, Sparkles, Wrench, ArrowRight, MessageCircle } from "lucide-react";
 
 const services = [
   {
-    icon: Shirt,
-    image: null,
-    href: null,
-    title: "Camisetas Personalizadas",
+    icon: Paintbrush,
+    title: "Pintura",
     description:
-      "Sublimación de alta calidad en camisetas y sudaderas. Tu diseño, tu estilo, tu marca personal.",
-    price: "$380 MXN",
-    tag: "Sublimación",
-    color: "cherry" as const,
+      "Pintura de calipers y rines. Dale ese toque personalizado a los detalles que más se notan en tu auto.",
+    tag: "Pintura Custom",
     waMessage:
-      "Hola!%20Me%20interesa%20una%20camiseta%20personalizada%20por%20sublimaci%C3%B3n.%20%C2%BFQu%C3%A9%20opciones%20tienen%20y%20c%C3%B3mo%20es%20el%20proceso%3F",
+      "Hola!%20Me%20interesa%20el%20servicio%20de%20pintura%20de%20calipers%20y%20rines.%20%C2%BFMe%20pueden%20dar%20informaci%C3%B3n%20y%20cotizaci%C3%B3n%3F",
   },
   {
-    icon: Camera,
-    image: null,
-    href: null,
-    title: "Sesiones de Foto",
+    icon: Sparkles,
+    title: "Detailing",
     description:
-      "Sesiones fotográficas profesionales para tu auto. Capturamos la esencia de tu máquina con estilo urbano.",
-    price: "Cotizar",
-    tag: "Photography",
-    color: "white" as const,
+      "Lavado de interiores y exteriores, pulido y encerado. Tu auto como recién salido de la agencia.",
+    tag: "Detailing",
     waMessage:
-      "Hola!%20Quiero%20cotizar%20una%20sesi%C3%B3n%20de%20fotos%20para%20mi%20auto.%20%C2%BFCu%C3%A1les%20son%20los%20paquetes%20y%20precios%3F",
+      "Hola!%20Me%20interesa%20el%20servicio%20de%20detailing%20(lavado%2Fpulido%2Fencerado).%20%C2%BFQu%C3%A9%20paquetes%20manejan%3F",
   },
   {
-    icon: Car,
-    image: null,
-    href: null,
-    title: "Video Automotriz",
+    icon: Wrench,
+    title: "Mantenimiento",
     description:
-      "Producción de video profesional para tu auto. Rollings, showcases y contenido para redes sociales.",
-    price: "Cotizar",
-    tag: "Video",
-    color: "leaf" as const,
+      "Afinaciones y cambios de balatas. Mantenimiento básico y confiable para tu vehículo.",
+    tag: "Taller",
     waMessage:
-      "Hola!%20Me%20interesa%20un%20video%20automotriz%20profesional.%20%C2%BFQu%C3%A9%20paquetes%20manejan%20y%20qu%C3%A9%20incluye%3F",
-  },
-  {
-    icon: null,
-    image: "/designs/design-01.png",
-    title: "Diseños Personalizados",
-    description:
-      "Creamos diseños únicos para plasmar en tu auto. Arte urbano con identidad propia — sujeto a cotización.",
-    price: "Cotizar",
-    tag: "Custom",
-    color: "cherry" as const,
-    href: "#disenos",
-    waMessage:
-      "Hola!%20Quiero%20un%20dise%C3%B1o%20personalizado%20para%20mi%20proyecto.%20%C2%BFMe%20pueden%20ayudar%20con%20ideas%20y%20cotizaci%C3%B3n%3F",
+      "Hola!%20Me%20interesa%20el%20servicio%20de%20mantenimiento%20(afinaci%C3%B3n%2Fbalatas).%20%C2%BFCu%C3%A1les%20son%20los%20precios%3F",
   },
 ];
-
-const colorMap = {
-  cherry: "bg-cherry/10 text-cherry border-cherry/20",
-  white: "bg-white/10 text-white border-white/20",
-  leaf: "bg-leaf-light/10 text-leaf-light border-leaf-light/20",
-} as const;
-
-const iconColorMap = {
-  cherry: "text-cherry",
-  white: "text-white",
-  leaf: "text-leaf-light",
-} as const;
-
-const iconBgMap = {
-  cherry: "bg-cherry/10 group-hover:bg-cherry/20",
-  white: "bg-white/10 group-hover:bg-white/15",
-  leaf: "bg-leaf-light/10 group-hover:bg-leaf-light/20",
-} as const;
 
 export default function Services() {
   return (
     <section id="servicios" className="relative py-28 sm:py-36">
       <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink-light/50 to-ink" />
 
-      {/* Decorative orbs */}
+      {/* Decorative cherry orbs */}
       <div className="absolute top-1/2 -left-48 w-96 h-96 bg-cherry/5 rounded-full blur-[150px]" />
-      <div className="absolute top-1/3 -right-48 w-80 h-80 bg-leaf/5 rounded-full blur-[120px]" />
+      <div className="absolute top-1/3 -right-48 w-80 h-80 bg-cherry/8 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 left-1/3 w-64 h-64 bg-cherry/5 rounded-full blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -96,19 +53,19 @@ export default function Services() {
           className="text-center mb-20"
         >
           <p className="font-[family-name:var(--font-dancing-script)] text-cherry text-xl sm:text-2xl mb-2">
-            Lo que hacemos
+            Tu auto en las mejores manos
           </p>
           <h2 className="font-[family-name:var(--font-permanent-marker)] text-4xl sm:text-5xl lg:text-6xl text-white tracking-wider">
-            NUESTROS SERVICIOS
+            DETAILING &amp; TALLER
           </h2>
           <div className="mt-6 mx-auto w-24 h-1 bg-gradient-to-r from-cherry to-cherry-dark rounded-full" />
           <p className="mt-6 text-smoke/50 max-w-2xl mx-auto text-lg">
-            Desde ropa personalizada hasta contenido visual profesional para tu auto.
+            Detailing automotriz y mantenimiento mecánico en Aguascalientes. Cuidamos cada detalle de tu auto.
           </p>
         </motion.div>
 
         {/* Services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -119,53 +76,40 @@ export default function Services() {
               className="group relative"
             >
               <a
-                href={service.href ?? `https://wa.me/524493091644?text=${service.waMessage}`}
-                target={service.href ? "_self" : "_blank"}
-                rel={service.href ? undefined : "noopener noreferrer"}
+                href={`https://wa.me/524493091644?text=${service.waMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block relative h-full p-8 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm hover:border-cherry/30 hover:bg-white/[0.05] transition-all duration-500 cursor-pointer"
               >
                 {/* Tag */}
-                <span
-                  className={`inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border ${colorMap[service.color]}`}
-                >
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border bg-cherry/10 text-cherry border-cherry/20">
                   {service.tag}
                 </span>
 
-                {/* Icon or Image */}
-                {service.image ? (
-                  <div className="mt-6 mb-4 w-full h-36 rounded-xl overflow-hidden relative">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
-                  </div>
-                ) : (
-                  <div className={`mt-6 mb-4 w-14 h-14 rounded-xl ${iconBgMap[service.color]} flex items-center justify-center transition-colors duration-300`}>
-                    {service.icon && (
-                      <service.icon
-                        className={`w-7 h-7 ${iconColorMap[service.color]} group-hover:scale-110 transition-transform duration-300`}
-                        strokeWidth={1.5}
-                      />
-                    )}
-                  </div>
-                )}
+                {/* Icon in cherry circle */}
+                <div className="mt-6 mb-4 w-16 h-16 rounded-full bg-cherry/20 flex items-center justify-center transition-colors duration-300 group-hover:bg-cherry/30">
+                  <service.icon
+                    className="w-8 h-8 text-cherry group-hover:scale-110 transition-transform duration-300"
+                    strokeWidth={1.5}
+                  />
+                </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cherry transition-colors duration-300">{service.title}</h3>
-                <p className="text-smoke/50 leading-relaxed mb-6">{service.description}</p>
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cherry transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-smoke/50 leading-relaxed mb-6">
+                  {service.description}
+                </p>
 
-                {/* Price & CTA */}
+                {/* CTA */}
                 <div className="flex items-center justify-between">
                   <span className="font-[family-name:var(--font-permanent-marker)] text-2xl text-cherry">
-                    {service.price}
+                    Cotizar
                   </span>
                   <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-smoke/40 group-hover:text-cherry transition-colors duration-300">
                     <MessageCircle className="w-4 h-4" />
-                    {service.href ? "Ver Diseños" : "Cotizar"}
+                    WhatsApp
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   </span>
                 </div>

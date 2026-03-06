@@ -6,11 +6,9 @@ import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 
 const navLinks = [
-  { name: "Inicio", href: "#inicio" },
+  { name: "Merch", href: "#merch" },
+  { name: "Foto y Video", href: "#multimedia" },
   { name: "Servicios", href: "#servicios" },
-  { name: "Catálogo", href: "#catalogo" },
-  { name: "Fotografía", href: "#fotografia" },
-  { name: "Contacto", href: "#contacto" },
 ];
 
 const WA_LINK =
@@ -45,7 +43,7 @@ export default function Navbar() {
           <a href="#inicio" className="flex items-center gap-3 group">
             <div className="relative">
               <Image
-                src="/logo-tshirt.png"
+                src="/logo-photography.png"
                 alt="Cherry Low"
                 width={44}
                 height={44}

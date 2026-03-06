@@ -1,10 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
+import Merch from "@/components/Merch";
 import Services from "@/components/Services";
-import CustomDesigns from "@/components/CustomDesigns";
-import Catalog from "@/components/Catalog";
-import Photography from "@/components/Photography";
+import Multimedia from "@/components/Multimedia";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -16,13 +15,11 @@ export default function Home() {
       <main>
         <Hero />
         <Marquee />
+        <Merch />
+        <div className="section-divider" />
+        <Multimedia />
+        <div className="section-divider" />
         <Services />
-        <div className="section-divider" />
-        <CustomDesigns />
-        <div className="section-divider" />
-        <Catalog />
-        <div className="section-divider" />
-        <Photography />
         <div className="section-divider" />
         <Contact />
       </main>
