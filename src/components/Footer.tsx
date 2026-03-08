@@ -99,7 +99,7 @@ export default function Footer() {
                   Instagram
                 </a>
                 <a
-                  href="https://www.facebook.com/cherrylow"
+                  href="https://www.facebook.com/share/18Ywo79tNb/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 hover:text-cherry transition-colors"
@@ -108,7 +108,7 @@ export default function Footer() {
                   Facebook
                 </a>
                 <a
-                  href="https://www.tiktok.com/@ek_cherrylow"
+                  href="https://www.tiktok.com/@honda_cherryek?_r=1&_t=ZS-94RXBrH3g3O"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-cherry transition-colors"

@@ -21,14 +21,14 @@ const socialLinks = [
     icon: Facebook,
     label: "Facebook",
     handle: "Cherry Low",
-    href: "https://www.facebook.com/cherrylow",
+    href: "https://www.facebook.com/share/18Ywo79tNb/",
     color: "hover:text-blue-500 hover:border-blue-500/30",
   },
   {
     icon: TikTokIcon,
     label: "TikTok",
     handle: "@ek_cherrylow",
-    href: "https://www.tiktok.com/@ek_cherrylow",
+    href: "https://www.tiktok.com/@honda_cherryek?_r=1&_t=ZS-94RXBrH3g3O",
     color: "hover:text-white hover:border-white/30",
   },
 ];
