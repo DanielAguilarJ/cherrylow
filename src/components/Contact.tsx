@@ -56,7 +56,7 @@ const contactInfo = [
 
 export default function Contact() {
   return (
-    <section id="contacto" className="relative py-28 sm:py-36">
+    <section id="contacto" className="relative py-20 sm:py-28 lg:py-36">
       <div className="absolute inset-0 bg-gradient-to-b from-ink to-ink-light/50 light:from-[#F9F9F9] light:to-gray-50" />
 
       {/* Red accent - cherry orbs */}
@@ -70,7 +70,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
           <p className="font-[family-name:var(--font-dancing-script)] text-cherry text-xl sm:text-2xl mb-2">
             Hablemos
@@ -79,12 +79,12 @@ export default function Contact() {
             CONTACTO
           </h2>
           <div className="mt-6 mx-auto w-24 h-1 bg-gradient-to-r from-cherry to-cherry-dark rounded-full" />
-          <p className="mt-6 text-smoke/50 light:text-ink/60 max-w-xl mx-auto text-lg">
+          <p className="mx-auto mt-6 max-w-xl text-base text-smoke/50 light:text-ink/60 sm:text-lg">
             Mándanos mensaje por WhatsApp para cotizar. Fotos, videos, ropa personalizada — lo que necesites.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left - Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -105,18 +105,18 @@ export default function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-4 p-5 rounded-2xl border border-white/5 light:border-ink/10 bg-white/[0.02] light:bg-ink/[0.03] hover:border-cherry/30 hover:bg-white/[0.05] light:hover:bg-ink/[0.05] transition-all duration-500 group"
+                  className="flex items-start gap-4 p-5 rounded-2xl border border-white/5 light:border-ink/10 bg-white/[0.02] light:bg-ink/[0.03] hover:border-cherry/30 hover:bg-white/[0.05] light:hover:bg-ink/[0.05] transition-all duration-500 group"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-cherry/10 flex items-center justify-center group-hover:bg-cherry/20 transition-colors">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-cherry/10 group-hover:bg-cherry/20 transition-colors">
                     <item.icon className="w-5 h-5 text-cherry" strokeWidth={1.5} />
                   </div>
                   <div className="flex-1">
                     <p className="text-xs text-ash light:text-ink/50 uppercase tracking-wider">{item.label}</p>
-                    <p className="text-white light:text-ink font-medium group-hover:text-cherry transition-colors">
+                    <p className="break-words text-sm sm:text-base text-white light:text-ink font-medium group-hover:text-cherry transition-colors">
                       {item.value}
                     </p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-white/0 group-hover:text-cherry/60 transition-all duration-300" />
+                  <ArrowRight className="mt-1 hidden sm:block w-4 h-4 text-white/0 group-hover:text-cherry/60 transition-all duration-300" />
                 </motion.a>
               ))}
             </div>
@@ -124,7 +124,7 @@ export default function Contact() {
             {/* Social links */}
             <div>
               <p className="text-sm text-ash light:text-ink/50 uppercase tracking-wider mb-4">Síguenos</p>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
@@ -158,27 +158,27 @@ export default function Contact() {
                 title="Ubicación Cherry Low"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117335.91684588456!2d-102.36224235!3d21.88139635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429ee67718b62e3%3A0x1661d43bfbb27dc5!2sAguascalientes%2C%20Ags.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx"
                 width="100%"
-                height="250"
+                height="200"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full"
+                className="w-full sm:h-[250px]"
               />
             </div>
 
             {/* Physical address card */}
-            <div className="p-4 rounded-xl border border-white/5 light:border-ink/10 bg-white/[0.02] light:bg-ink/[0.03] flex items-center gap-3">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cherry/20 flex items-center justify-center">
+            <div className="flex items-start gap-3 rounded-xl border border-white/5 light:border-ink/10 bg-white/[0.02] p-4 light:bg-ink/[0.03]">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-cherry/20">
                 <MapPin className="w-5 h-5 text-cherry" strokeWidth={1.5} />
               </div>
-              <p className="text-smoke/70 light:text-ink/70 text-sm leading-snug">
+              <p className="text-sm text-smoke/70 light:text-ink/70 leading-snug break-words">
                 Av. Aguascalientes Sur #123, Col. Centro, Aguascalientes, Ags. CP 20000
               </p>
             </div>
 
             {/* WhatsApp CTA */}
-            <div className="w-full p-8 sm:p-10 rounded-3xl border border-cherry/20 bg-gradient-to-br from-cherry/5 to-cherry/10 relative overflow-hidden">
+            <div className="w-full p-6 sm:p-8 lg:p-10 rounded-3xl border border-cherry/20 bg-gradient-to-br from-cherry/5 to-cherry/10 relative overflow-hidden">
               {/* Background decoration - cherry orbs */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-cherry/10 rounded-full blur-[60px]" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-cherry/5 rounded-full blur-[50px]" />
@@ -190,7 +190,7 @@ export default function Contact() {
                   </svg>
                 </div>
 
-                <h3 className="font-[family-name:var(--font-permanent-marker)] text-3xl sm:text-4xl text-white light:text-ink mb-4 tracking-wider">
+                <h3 className="font-[family-name:var(--font-permanent-marker)] text-2xl sm:text-3xl lg:text-4xl text-white light:text-ink mb-4 tracking-wider">
                   COTIZA POR WHATSAPP
                 </h3>
 
@@ -198,16 +198,16 @@ export default function Contact() {
                   La forma más rápida de cotizar. Mándanos mensaje con lo que buscas y te respondemos al instante.
                 </p>
 
-                <ul className="space-y-2 mb-8">
+                <ul className="mb-8 space-y-2">
                   {[
                     "Playeras y sudaderas (Personalización DTF)",
                     "Sesiones de foto y video para autos",
                     "Detailing automotriz y taller",
                     "Envíos a todo México",
                   ].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-smoke/70 light:text-ink/70">
+                    <li key={item} className="flex items-start gap-2 text-smoke/70 light:text-ink/70">
                       <span className="w-1.5 h-1.5 rounded-full bg-cherry flex-shrink-0" />
-                      {item}
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -216,7 +216,7 @@ export default function Contact() {
                   href={WA_CONTACT}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-green-600 text-white font-bold uppercase tracking-wider rounded-full hover:bg-green-700 transition-all duration-300 hover:scale-105 shadow-lg shadow-green-600/20"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-3 px-6 sm:px-8 py-4 bg-green-600 text-white text-sm sm:text-base font-bold uppercase tracking-[0.16em] rounded-full hover:bg-green-700 transition-all duration-300 hover:scale-105 shadow-lg shadow-green-600/20"
                 >
                   <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />

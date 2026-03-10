@@ -53,7 +53,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative h-screen w-full overflow-hidden bg-ink light:bg-smoke"
+      className="relative min-h-[100svh] w-full overflow-hidden bg-ink light:bg-smoke"
     >
       {/* ═══ PARALLAX SLIDESHOW ═══ */}
       <AnimatePresence mode="popLayout">
@@ -113,12 +113,12 @@ export default function Hero() {
       <motion.div
         animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-cherry/10 rounded-full blur-[150px] z-[2]"
+        className="absolute left-1/2 top-20 h-[320px] w-[320px] -translate-x-1/2 rounded-full bg-cherry/10 blur-[110px] z-[2] sm:left-auto sm:top-1/4 sm:h-[500px] sm:w-[500px] sm:-translate-x-0 sm:-left-32 sm:blur-[150px]"
       />
       <motion.div
         animate={{ x: [0, -15, 0], y: [0, 20, 0] }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/4 -right-32 w-80 h-80 bg-cherry/8 rounded-full blur-[120px] z-[2]"
+        className="absolute -right-20 bottom-1/4 h-56 w-56 rounded-full bg-cherry/8 blur-[90px] z-[2] sm:-right-32 sm:h-80 sm:w-80 sm:blur-[120px]"
       />
 
       {/* Grid pattern overlay */}
@@ -131,14 +131,14 @@ export default function Hero() {
       />
 
       {/* ═══ CONTENT (foreground - static for parallax depth) ═══ */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
+      <div className="relative z-10 flex min-h-[100svh] items-center pt-24 pb-16 sm:pb-20">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl text-center sm:text-left">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-[family-name:var(--font-dancing-script)] text-cherry text-2xl sm:text-3xl lg:text-4xl mb-4 glow-cherry-text"
+              className="mb-4 font-[family-name:var(--font-dancing-script)] text-2xl text-cherry glow-cherry-text sm:text-3xl lg:text-4xl"
             >
               Aférrate a tus sueños
             </motion.p>
@@ -147,7 +147,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-[family-name:var(--font-permanent-marker)] text-6xl sm:text-8xl lg:text-9xl text-white leading-[0.9] tracking-wide"
+              className="font-[family-name:var(--font-permanent-marker)] text-[clamp(3.5rem,16vw,8rem)] lg:text-9xl text-white leading-[0.9] tracking-[0.04em] sm:tracking-wide"
             >
               <span className="block">CHERRY</span>
               <span className="block text-gradient-cherry">LOW!</span>
@@ -157,7 +157,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-6 text-lg sm:text-xl text-smoke/80 max-w-xl leading-relaxed"
+              className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-smoke/80 sm:mx-0 sm:text-xl"
             >
               Streetwear personalizado, fotografía y video automotriz.
               <span className="text-cherry font-semibold"> Aguascalientes</span>{" "}
@@ -168,11 +168,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="mt-10 flex flex-col sm:flex-row gap-4"
+              className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4"
             >
               <a
                 href="#merch"
-                className="group relative px-8 py-4 bg-cherry text-white font-bold uppercase tracking-wider rounded-full overflow-hidden transition-all duration-300 hover:scale-105 glow-cherry text-center"
+                className="group relative w-full sm:w-auto px-6 sm:px-8 py-4 bg-cherry text-white text-sm sm:text-base font-bold uppercase tracking-[0.2em] rounded-full overflow-hidden transition-all duration-300 hover:scale-105 glow-cherry text-center"
               >
                 <span className="relative z-10">Ver Playeras</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-cherry-dark to-cherry opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -181,7 +181,7 @@ export default function Hero() {
                 href={WA_QUOTE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group px-8 py-4 border-2 border-white/30 text-white font-bold uppercase tracking-wider rounded-full hover:bg-cherry/10 hover:border-cherry transition-all duration-300 backdrop-blur-sm text-center"
+                className="group w-full sm:w-auto px-6 sm:px-8 py-4 border-2 border-white/30 text-white text-sm sm:text-base font-bold uppercase tracking-[0.18em] rounded-full hover:bg-cherry/10 hover:border-cherry transition-all duration-300 backdrop-blur-sm text-center"
               >
                 Cotizar por WhatsApp
               </a>
@@ -192,7 +192,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1.0 }}
-              className="mt-14 flex gap-8"
+              className="mt-12 grid max-w-xl grid-cols-1 gap-4 rounded-3xl border border-white/10 bg-black/15 p-5 backdrop-blur-sm sm:mt-14 sm:grid-cols-[auto_1px_auto_1px_auto] sm:items-stretch sm:gap-x-8 sm:gap-y-4 sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-0"
             >
               <div>
                 <p className="font-[family-name:var(--font-permanent-marker)] text-3xl sm:text-4xl text-cherry">
@@ -202,7 +202,7 @@ export default function Hero() {
                   Personalización DTF
                 </p>
               </div>
-              <div className="w-px bg-white/10" />
+              <div className="hidden sm:block w-px bg-white/10 self-stretch" />
               <div>
                 <p className="font-[family-name:var(--font-permanent-marker)] text-3xl sm:text-4xl text-white">
                   MX
@@ -211,7 +211,7 @@ export default function Hero() {
                   Envío Nacional
                 </p>
               </div>
-              <div className="w-px bg-white/10" />
+              <div className="hidden sm:block w-px bg-white/10 self-stretch" />
               <div>
                 <p className="font-[family-name:var(--font-permanent-marker)] text-3xl sm:text-4xl text-leaf-light">
                   AGS
@@ -240,7 +240,7 @@ export default function Hero() {
       </div>
 
       {/* ═══ SLIDE INDICATORS ═══ */}
-      <div className="absolute bottom-24 sm:bottom-16 right-8 z-10 flex flex-col gap-2">
+      <div className="absolute bottom-24 right-4 z-10 hidden flex-col gap-2 sm:bottom-16 sm:right-8 sm:flex">
         {heroImages.map((_, index) => (
           <div
             key={index}
@@ -258,7 +258,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-[max(1.5rem,env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2 z-10 hidden sm:block"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}

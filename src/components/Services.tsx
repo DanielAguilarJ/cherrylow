@@ -35,7 +35,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="servicios" className="relative py-28 sm:py-36">
+    <section id="servicios" className="relative py-20 sm:py-28 lg:py-36">
       <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink-light/50 to-ink light:from-[#F9F9F9] light:via-gray-50 light:to-[#F9F9F9]" />
 
       {/* Decorative cherry orbs */}
@@ -50,7 +50,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
           <p className="font-[family-name:var(--font-dancing-script)] text-cherry text-xl sm:text-2xl mb-2">
             Tu auto en las mejores manos
@@ -59,7 +59,7 @@ export default function Services() {
             DETAILING &amp; TALLER
           </h2>
           <div className="mt-6 mx-auto w-24 h-1 bg-gradient-to-r from-cherry to-cherry-dark rounded-full" />
-          <p className="mt-6 text-smoke/50 light:text-ink/60 max-w-2xl mx-auto text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base text-smoke/50 light:text-ink/60 sm:text-lg">
             Detailing automotriz y mantenimiento mecánico en Aguascalientes. Cuidamos cada detalle de tu auto.
           </p>
         </motion.div>
@@ -79,7 +79,7 @@ export default function Services() {
                 href={`https://wa.me/524493091644?text=${service.waMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block relative h-full p-8 rounded-2xl border border-white/5 light:border-ink/10 bg-white/[0.02] light:bg-ink/[0.03] backdrop-blur-sm hover:border-cherry/30 hover:bg-white/[0.05] light:hover:bg-ink/[0.05] transition-all duration-500 cursor-pointer"
+                className="block relative h-full p-6 sm:p-8 rounded-2xl border border-white/5 light:border-ink/10 bg-white/[0.02] light:bg-ink/[0.03] backdrop-blur-sm hover:border-cherry/30 hover:bg-white/[0.05] light:hover:bg-ink/[0.05] transition-all duration-500 cursor-pointer"
               >
                 {/* Tag */}
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border bg-cherry/10 text-cherry border-cherry/20">
@@ -103,8 +103,8 @@ export default function Services() {
                 </p>
 
                 {/* CTA */}
-                <div className="flex items-center justify-between">
-                  <span className="font-[family-name:var(--font-permanent-marker)] text-2xl text-cherry">
+                <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-2">
+                  <span className="font-[family-name:var(--font-permanent-marker)] text-xl sm:text-2xl text-cherry">
                     Cotizar
                   </span>
                   <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-smoke/40 light:text-ink/50 group-hover:text-cherry transition-colors duration-300">

@@ -14,10 +14,10 @@ export default function Footer() {
       <div className="absolute inset-0 bg-ink-light/50 light:bg-gray-100/50" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="mb-4 flex items-center gap-3">
               <Image
                 src="/logo-tshirt.png"
                 alt="Cherry Low"
@@ -29,7 +29,7 @@ export default function Footer() {
                 CHERRY LOW
               </span>
             </div>
-            <p className="font-[family-name:var(--font-dancing-script)] text-cherry text-lg mb-4">
+            <p className="mb-4 font-[family-name:var(--font-dancing-script)] text-lg text-cherry">
               Aférrate a tus sueños
             </p>
             <p className="text-sm text-smoke/40 light:text-ink/50 leading-relaxed">
@@ -88,7 +88,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>Aguascalientes, México</li>
-              <li className="pt-2 flex gap-4">
+              <li className="flex flex-wrap gap-3 pt-2">
                 <a
                   href="https://www.instagram.com/ek_cherrylow"
                   target="_blank"
@@ -121,7 +121,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-white/5 light:border-ink/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/5 pt-8 text-center light:border-ink/10 sm:flex-row sm:text-left">
           <p className="text-xs text-smoke/30 light:text-ink/40">
             &copy; {currentYear} Cherry Low Photography. Todos los derechos reservados.
           </p>

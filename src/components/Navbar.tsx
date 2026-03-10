@@ -28,6 +28,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -40,9 +48,9 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-18 sm:h-20 items-center justify-between gap-3">
           {/* Logo */}
-          <a href="#inicio" className="flex items-center gap-3 group">
+          <a href="#inicio" className="flex min-w-0 items-center gap-2.5 sm:gap-3 group">
             <div className="relative">
               <Image
                 src="/logo-photography.png"
@@ -53,7 +61,7 @@ export default function Navbar() {
               />
               <div className="absolute inset-0 rounded-full bg-cherry/0 group-hover:bg-cherry/10 transition-colors duration-300" />
             </div>
-            <span className="font-[family-name:var(--font-permanent-marker)] text-lg text-white light:text-ink tracking-wider group-hover:text-cherry transition-colors duration-300">
+            <span className="truncate font-[family-name:var(--font-permanent-marker)] text-base sm:text-lg text-white light:text-ink tracking-[0.18em] sm:tracking-wider group-hover:text-cherry transition-colors duration-300">
               CHERRY LOW
             </span>
           </a>
@@ -96,12 +104,12 @@ export default function Navbar() {
           </div>
 
           {/* Mobile right controls */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="md:hidden flex shrink-0 items-center gap-1.5 sm:gap-2">
             {/* Theme toggle mobile */}
             <button
               onClick={toggleTheme}
               aria-label="Cambiar tema"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-white/10 light:border-ink/15 text-smoke/70 light:text-ink/70 hover:text-cherry transition-all duration-300"
+              className="h-9 w-9 flex items-center justify-center rounded-full border border-white/10 light:border-ink/15 text-smoke/70 light:text-ink/70 hover:text-cherry transition-all duration-300"
             >
               {theme === "dark" ? (
                 <Sun className="w-4 h-4" />
@@ -113,7 +121,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="relative w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+              className="relative h-10 w-10 flex flex-col items-center justify-center gap-1.5 rounded-full border border-white/10 light:border-ink/10 bg-black/10 light:bg-white/30"
               aria-label="Toggle menu"
             >
               <motion.span
@@ -143,7 +151,7 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="md:hidden bg-ink/98 light:bg-white/98 backdrop-blur-xl border-t border-cherry/10"
           >
-            <div className="px-6 py-8 space-y-4">
+            <div className="px-5 pb-[max(2rem,env(safe-area-inset-bottom))] pt-6 space-y-4 max-h-[calc(100svh-4.5rem)] overflow-y-auto">
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.name}
@@ -152,7 +160,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.08 }}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-3 py-2 text-lg font-medium text-smoke/80 light:text-ink/80 hover:text-cherry transition-colors uppercase tracking-widest"
+                  className="flex items-center gap-3 rounded-xl border border-white/5 light:border-ink/10 bg-white/[0.02] light:bg-ink/[0.03] px-4 py-3 text-base font-medium text-smoke/80 light:text-ink/80 hover:text-cherry transition-colors uppercase tracking-[0.18em]"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-cherry/40" />
                   {link.name}
@@ -166,7 +174,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 w-full mt-4 px-6 py-3.5 bg-cherry text-white font-bold uppercase tracking-wider rounded-full hover:bg-cherry-dark transition-colors"
+                className="flex items-center justify-center gap-2 w-full mt-4 px-6 py-3.5 bg-cherry text-white text-sm font-bold uppercase tracking-[0.2em] rounded-full hover:bg-cherry-dark transition-colors"
               >
                 <MessageCircle className="w-5 h-5" />
                 Cotizar Ahora
