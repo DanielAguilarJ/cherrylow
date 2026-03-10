@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { background: #111; padding: 50px; color: white; font-family: sans-serif; }
+  
+  .cherry-btn-shape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    background: #DC2626;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+    border: none;
+    /* Create a shape with two rounded lobes at the bottom */
+    border-radius: 40px 40px 20px 20px;
+  }
+  
+  .cherry-btn-shape::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: #111; /* Match background to create "cutout" between the two lobes */
+    border-radius: 50%;
+  }
+
+  /* Another approach: use clip-path with a responsive polygon/ellipse combo */
+  .cherry-btn-mask {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    background: #DC2626;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+    border: none;
+    
+    /* Using mask-image to draw the cherry shape perfectly responsive */
+    /* We draw a large rectangle for the top part, and two huge circles for the bottom. */
+    -webkit-mask-image: 
+      linear-gradient(black, black),
+      radial-gradient(ellipse at center, black 50%, transparent 51%),
+      radial-gradient(ellipse at center, black 50%, transparent 51%);
+    -webkit-mask-size: 
+      100% 70%, 
+      65% 100%, 
+      65% 100%;
+    -webkit-mask-position: 
+      top left, 
+      bottom left, 
+      bottom right;
+    -webkit-mask-repeat: no-repeat;
+  }
+</style>
+</head>
+<body>
+  <div class="cherry-btn-mask">Catálogo en Existencia</div>
+</body>
+</html>

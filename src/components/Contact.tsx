@@ -57,7 +57,7 @@ const contactInfo = [
 export default function Contact() {
   return (
     <section id="contacto" className="relative py-28 sm:py-36">
-      <div className="absolute inset-0 bg-gradient-to-b from-ink to-ink-light/50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ink to-ink-light/50 light:from-[#F9F9F9] light:to-gray-50" />
 
       {/* Red accent - cherry orbs */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cherry/5 rounded-full blur-[150px]" />
@@ -75,11 +75,11 @@ export default function Contact() {
           <p className="font-[family-name:var(--font-dancing-script)] text-cherry text-xl sm:text-2xl mb-2">
             Hablemos
           </p>
-          <h2 className="font-[family-name:var(--font-permanent-marker)] text-4xl sm:text-5xl lg:text-6xl text-white tracking-wider">
+          <h2 className="font-[family-name:var(--font-permanent-marker)] text-4xl sm:text-5xl lg:text-6xl text-white light:text-ink tracking-wider">
             CONTACTO
           </h2>
           <div className="mt-6 mx-auto w-24 h-1 bg-gradient-to-r from-cherry to-cherry-dark rounded-full" />
-          <p className="mt-6 text-smoke/50 max-w-xl mx-auto text-lg">
+          <p className="mt-6 text-smoke/50 light:text-ink/60 max-w-xl mx-auto text-lg">
             Mándanos mensaje por WhatsApp para cotizar. Fotos, videos, ropa personalizada — lo que necesites.
           </p>
         </motion.div>
@@ -105,14 +105,14 @@ export default function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-4 p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-cherry/30 hover:bg-white/[0.05] transition-all duration-500 group"
+                  className="flex items-center gap-4 p-5 rounded-2xl border border-white/5 light:border-ink/10 bg-white/[0.02] light:bg-ink/[0.03] hover:border-cherry/30 hover:bg-white/[0.05] light:hover:bg-ink/[0.05] transition-all duration-500 group"
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-cherry/10 flex items-center justify-center group-hover:bg-cherry/20 transition-colors">
                     <item.icon className="w-5 h-5 text-cherry" strokeWidth={1.5} />
                   </div>
                   <div className="flex-1">
-                    <p className="text-xs text-ash uppercase tracking-wider">{item.label}</p>
-                    <p className="text-white font-medium group-hover:text-cherry transition-colors">
+                    <p className="text-xs text-ash light:text-ink/50 uppercase tracking-wider">{item.label}</p>
+                    <p className="text-white light:text-ink font-medium group-hover:text-cherry transition-colors">
                       {item.value}
                     </p>
                   </div>
@@ -123,7 +123,7 @@ export default function Contact() {
 
             {/* Social links */}
             <div>
-              <p className="text-sm text-ash uppercase tracking-wider mb-4">Síguenos</p>
+              <p className="text-sm text-ash light:text-ink/50 uppercase tracking-wider mb-4">Síguenos</p>
               <div className="flex gap-3">
                 {socialLinks.map((social) => (
                   <a
@@ -131,11 +131,11 @@ export default function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group flex items-center gap-3 px-4 py-3 rounded-xl border border-white/5 bg-white/[0.02] transition-all duration-300 ${social.color}`}
+                    className={`group flex items-center gap-3 px-4 py-3 rounded-xl border border-white/5 light:border-ink/10 bg-white/[0.02] light:bg-ink/[0.03] transition-all duration-300 ${social.color}`}
                     title={social.label}
                   >
-                    <social.icon className="w-5 h-5 text-ash group-hover:text-current transition-colors" />
-                    <span className="hidden sm:block text-sm text-ash group-hover:text-current transition-colors">
+                    <social.icon className="w-5 h-5 text-ash light:text-ink/50 group-hover:text-current transition-colors" />
+                    <span className="hidden sm:block text-sm text-ash light:text-ink/50 group-hover:text-current transition-colors">
                       {social.handle}
                     </span>
                   </a>
@@ -153,7 +153,7 @@ export default function Contact() {
             className="flex flex-col gap-8"
           >
             {/* Google Maps */}
-            <div className="w-full rounded-2xl border border-white/10 overflow-hidden">
+            <div className="w-full rounded-2xl border border-white/10 light:border-ink/15 overflow-hidden">
               <iframe
                 title="Ubicación Cherry Low"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117335.91684588456!2d-102.36224235!3d21.88139635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429ee67718b62e3%3A0x1661d43bfbb27dc5!2sAguascalientes%2C%20Ags.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx"
@@ -168,11 +168,11 @@ export default function Contact() {
             </div>
 
             {/* Physical address card */}
-            <div className="p-4 rounded-xl border border-white/5 bg-white/[0.02] flex items-center gap-3">
+            <div className="p-4 rounded-xl border border-white/5 light:border-ink/10 bg-white/[0.02] light:bg-ink/[0.03] flex items-center gap-3">
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cherry/20 flex items-center justify-center">
                 <MapPin className="w-5 h-5 text-cherry" strokeWidth={1.5} />
               </div>
-              <p className="text-smoke/70 text-sm leading-snug">
+              <p className="text-smoke/70 light:text-ink/70 text-sm leading-snug">
                 Av. Aguascalientes Sur #123, Col. Centro, Aguascalientes, Ags. CP 20000
               </p>
             </div>
@@ -190,11 +190,11 @@ export default function Contact() {
                   </svg>
                 </div>
 
-                <h3 className="font-[family-name:var(--font-permanent-marker)] text-3xl sm:text-4xl text-white mb-4 tracking-wider">
+                <h3 className="font-[family-name:var(--font-permanent-marker)] text-3xl sm:text-4xl text-white light:text-ink mb-4 tracking-wider">
                   COTIZA POR WHATSAPP
                 </h3>
 
-                <p className="text-smoke/60 leading-relaxed mb-4">
+                <p className="text-smoke/60 light:text-ink/60 leading-relaxed mb-4">
                   La forma más rápida de cotizar. Mándanos mensaje con lo que buscas y te respondemos al instante.
                 </p>
 
@@ -205,7 +205,7 @@ export default function Contact() {
                     "Detailing automotriz y taller",
                     "Envíos a todo México",
                   ].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-smoke/70">
+                    <li key={item} className="flex items-center gap-2 text-smoke/70 light:text-ink/70">
                       <span className="w-1.5 h-1.5 rounded-full bg-cherry flex-shrink-0" />
                       {item}
                     </li>

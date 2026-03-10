@@ -151,7 +151,7 @@ function buildWALink(title: string) {
 
 const categoryColors: Record<string, string> = {
   "T-Shirt": "bg-cherry/10 text-cherry border-cherry/30",
-  Hoodie: "bg-white/10 text-white border-white/30",
+  Hoodie: "bg-white/10 light:bg-ink/10 text-white light:text-ink border-white/30 light:border-ink/30",
   Custom: "bg-leaf-light/10 text-leaf-light border-leaf-light/30",
   Bundle: "bg-cherry/10 text-cherry-light border-cherry-light/30",
 };
@@ -166,7 +166,7 @@ export default function Merch() {
 
   return (
     <section id="merch" className="relative py-28 sm:py-36 overflow-hidden">
-      <div className="absolute inset-0 bg-ink" />
+      <div className="absolute inset-0 bg-ink light:bg-[#F9F9F9]" />
 
       {/* Cherry decorative orbs (circles) */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cherry/5 rounded-full blur-[180px] pointer-events-none" />
@@ -185,11 +185,11 @@ export default function Merch() {
           <p className="font-[family-name:var(--font-dancing-script)] text-cherry text-xl sm:text-2xl mb-2">
             Streetwear con actitud
           </p>
-          <h2 className="font-[family-name:var(--font-permanent-marker)] text-4xl sm:text-5xl lg:text-6xl text-white tracking-wider">
+          <h2 className="font-[family-name:var(--font-permanent-marker)] text-4xl sm:text-5xl lg:text-6xl text-white light:text-ink tracking-wider">
             MERCH
           </h2>
           <div className="mt-6 mx-auto w-24 h-1 bg-gradient-to-r from-cherry to-cherry-dark rounded-full" />
-          <p className="mt-6 text-smoke/50 max-w-2xl mx-auto text-lg">
+          <p className="mt-6 text-smoke/50 light:text-ink/60 max-w-2xl mx-auto text-lg">
             Personalización DTF de camisetas y sudaderas. Desde{" "}
             <span className="text-cherry font-bold">$380 MXN</span>. Envíos a
             todo México.
@@ -211,7 +211,7 @@ export default function Merch() {
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-cherry/20 flex items-center justify-center">
                 <Gift className="w-6 h-6 text-cherry" />
               </div>
-              <p className="text-smoke/80 text-sm sm:text-base leading-relaxed">
+              <p className="text-smoke/80 light:text-ink/80 text-sm sm:text-base leading-relaxed">
                 <span className="text-cherry font-bold">¡Incluido con tu playera!</span>{" "}
                 Todas nuestras playeras incluyen un empaque especial con stickers
                 en relieve y un llavero impreso en 3D exclusivo de Cherry Low.
@@ -230,10 +230,10 @@ export default function Merch() {
         >
           <button
             onClick={() => setTab("catalogo")}
-            className={`group flex items-center justify-center gap-3 px-10 py-5 rounded-2xl border-2 text-lg font-bold uppercase tracking-wider transition-all duration-300 ${
+            className={`group flex items-center justify-center gap-3 px-10 py-5 cherry-btn text-lg font-bold uppercase tracking-wider transition-all duration-300 ${
               tab === "catalogo"
-                ? "bg-cherry text-white border-cherry glow-cherry scale-[1.02]"
-                : "bg-white/[0.03] text-smoke/60 border-white/10 hover:border-cherry/40 hover:text-white"
+                ? "bg-cherry text-white glow-cherry scale-[1.02]"
+                : "bg-white/[0.03] light:bg-ink/[0.05] text-smoke/60 light:text-ink/60 hover:bg-cherry/20 hover:text-white light:hover:text-white"
             }`}
           >
             <ShoppingBag className="w-6 h-6" />
@@ -241,10 +241,10 @@ export default function Merch() {
           </button>
           <button
             onClick={() => setTab("personalizado")}
-            className={`group flex items-center justify-center gap-3 px-10 py-5 rounded-2xl border-2 text-lg font-bold uppercase tracking-wider transition-all duration-300 ${
+            className={`group flex items-center justify-center gap-3 px-10 py-5 cherry-btn text-lg font-bold uppercase tracking-wider transition-all duration-300 ${
               tab === "personalizado"
-                ? "bg-cherry text-white border-cherry glow-cherry scale-[1.02]"
-                : "bg-white/[0.03] text-smoke/60 border-white/10 hover:border-cherry/40 hover:text-white"
+                ? "bg-cherry text-white glow-cherry scale-[1.02]"
+                : "bg-white/[0.03] light:bg-ink/[0.05] text-smoke/60 light:text-ink/60 hover:bg-cherry/20 hover:text-white light:hover:text-white"
             }`}
           >
             <Car className="w-6 h-6" />
@@ -276,44 +276,40 @@ export default function Merch() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="group block"
                   >
-                    <div className="relative h-full rounded-2xl border border-white/5 overflow-hidden hover:border-cherry/30 transition-all duration-500">
+                    <div className="relative h-full transition-all duration-500">
                       {/* Product image */}
-                      <div className="relative h-64 bg-black overflow-hidden">
+                      <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-black light:bg-gray-200">
                         <Image
                           src={item.image}
                           alt={item.title}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
+                        {/* Hover overlay */}
+                        <div className="absolute inset-0 bg-cherry/0 group-hover:bg-cherry/20 transition-colors duration-500" />
+                      </div>
+
+                      {/* Content below cherry */}
+                      <div className="pt-4 text-center">
                         {/* Category badge */}
                         <span
-                          className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border ${categoryColors[item.category]}`}
+                          className={`inline-flex px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border mb-3 ${categoryColors[item.category]}`}
                         >
                           {item.category}
                         </span>
-                        {/* Hover overlay */}
-                        <div className="absolute inset-0 bg-cherry/0 group-hover:bg-cherry/10 transition-colors duration-500 flex items-center justify-center">
-                          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 px-5 py-2 bg-cherry text-white text-sm font-bold uppercase tracking-wider rounded-full">
-                            <MessageCircle className="w-4 h-4" />
-                            Ordenar
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Content */}
-                      <div className="p-6 bg-white/[0.02]">
-                        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cherry transition-colors duration-300">
+                        <h3 className="text-lg font-bold text-white light:text-ink mb-2 group-hover:text-cherry transition-colors duration-300">
                           {item.title}
                         </h3>
-                        <p className="text-sm text-smoke/50 mb-4 leading-relaxed">
+                        <p className="text-sm text-smoke/50 light:text-ink/60 mb-4 leading-relaxed">
                           {item.description}
                         </p>
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-center gap-4">
                           <span className="font-[family-name:var(--font-permanent-marker)] text-xl text-cherry">
                             {item.price}
                           </span>
-                          <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-smoke/40 group-hover:text-cherry transition-colors duration-300">
-                            Pedir por WhatsApp
+                          <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-smoke/40 light:text-ink/50 group-hover:text-cherry transition-colors duration-300">
+                            <MessageCircle className="w-4 h-4" />
+                            Ordenar
                             <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
                           </span>
                         </div>
@@ -335,7 +331,7 @@ export default function Merch() {
                   href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hola! Quiero cotizar una prenda personalizada con mi propio diseño. ¿Qué necesito enviarles y cuánto tarda?")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-10 py-4 bg-cherry text-white font-bold uppercase tracking-wider rounded-full hover:bg-cherry-dark transition-all duration-300 glow-cherry hover:scale-105"
+                  className="inline-flex items-center gap-2 px-12 py-5 bg-cherry text-white font-bold uppercase tracking-wider cherry-btn hover:bg-cherry-dark transition-all duration-300 glow-cherry hover:scale-105"
                 >
                   <MessageCircle className="w-5 h-5" />
                   Cotiza tu Diseño Personalizado
@@ -356,10 +352,10 @@ export default function Merch() {
                 <p className="font-[family-name:var(--font-dancing-script)] text-cherry text-xl sm:text-2xl mb-2">
                   Arte sobre ruedas
                 </p>
-                <h3 className="font-[family-name:var(--font-permanent-marker)] text-3xl sm:text-4xl text-white tracking-wider mb-4">
+                <h3 className="font-[family-name:var(--font-permanent-marker)] text-3xl sm:text-4xl text-white light:text-ink tracking-wider mb-4">
                   DISEÑOS PERSONALIZADOS
                 </h3>
-                <p className="text-smoke/50 max-w-2xl mx-auto text-lg">
+                <p className="text-smoke/50 light:text-ink/60 max-w-2xl mx-auto text-lg">
                   Cada diseño es único. Llevamos tu visión al metal — cotiza el
                   tuyo hoy.
                 </p>
@@ -374,10 +370,10 @@ export default function Merch() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5, delay: index * 0.08 }}
-                    className="group relative flex flex-col rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden hover:border-cherry/40 transition-all duration-500"
+                    className="group relative flex flex-col items-center transition-all duration-500"
                   >
-                    {/* Image */}
-                    <div className="relative w-full aspect-[3/4] overflow-hidden">
+                    {/* Design image */}
+                    <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-black light:bg-gray-200">
                       <Image
                         src={item.src}
                         alt={item.title}
@@ -385,24 +381,24 @@ export default function Merch() {
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                         className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
-                      <div className="absolute top-3 left-3">
-                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-cherry/80 text-white backdrop-blur-sm border border-cherry/40">
+                      <div className="absolute inset-0 bg-cherry/0 group-hover:bg-cherry/20 transition-colors duration-500" />
+                    </div>
+
+                    {/* Content below cherry */}
+                    <div className="flex flex-col flex-1 pt-4 gap-3 text-center">
+                      <div>
+                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-cherry/80 text-white border border-cherry/40">
                           <Tag className="w-3 h-3" />
                           {item.tag}
                         </span>
                       </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex flex-col flex-1 p-5 gap-3">
-                      <h3 className="text-white font-bold text-base leading-snug group-hover:text-cherry transition-colors duration-300">
+                      <h3 className="text-white light:text-ink font-bold text-base leading-snug group-hover:text-cherry transition-colors duration-300">
                         {item.title}
                       </h3>
-                      <p className="text-smoke/50 text-sm leading-relaxed flex-1">
+                      <p className="text-smoke/50 light:text-ink/60 text-sm leading-relaxed flex-1">
                         {item.description}
                       </p>
-                      <div className="flex items-center justify-between pt-2 border-t border-white/5 mt-1">
+                      <div className="flex items-center justify-center gap-3 pt-2 border-t border-white/5 light:border-ink/10 mt-1">
                         <span className="font-[family-name:var(--font-permanent-marker)] text-xl text-cherry">
                           Cotizar
                         </span>
@@ -410,7 +406,7 @@ export default function Merch() {
                           href={buildWALink(item.title)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-smoke/40 hover:text-cherry transition-colors duration-300"
+                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-smoke/40 light:text-ink/50 hover:text-cherry transition-colors duration-300"
                         >
                           <MessageCircle className="w-3.5 h-3.5" />
                           Pedir
@@ -418,9 +414,6 @@ export default function Merch() {
                         </a>
                       </div>
                     </div>
-
-                    {/* Hover glow */}
-                    <div className="absolute -inset-px rounded-2xl bg-gradient-to-t from-cherry/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   </motion.div>
                 ))}
               </div>
@@ -433,7 +426,7 @@ export default function Merch() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="mt-16 text-center"
               >
-                <p className="text-smoke/40 mb-5 text-sm">
+                <p className="text-smoke/40 light:text-ink/50 mb-5 text-sm">
                   ¿Tienes una idea diferente? Cuéntanos — hacemos realidad
                   cualquier visión.
                 </p>
@@ -441,7 +434,7 @@ export default function Merch() {
                   href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hola! Quiero un diseño personalizado para mi auto. ¿Me pueden ayudar con ideas y cotización?")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-cherry text-white font-bold uppercase tracking-widest text-sm hover:bg-cherry-dark transition-colors duration-300 shadow-lg shadow-cherry/20"
+                  className="inline-flex items-center gap-2 px-12 py-5 cherry-btn bg-cherry text-white font-bold uppercase tracking-widest text-sm hover:bg-cherry-dark transition-colors duration-300 shadow-lg shadow-cherry/20"
                 >
                   <MessageCircle className="w-4 h-4" />
                   Solicitar Cotización

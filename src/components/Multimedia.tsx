@@ -40,7 +40,7 @@ const WA_VIDEO =
 export default function Multimedia() {
   return (
     <section id="multimedia" className="relative py-28 sm:py-36 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink-light/30 to-ink" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink-light/30 to-ink light:from-[#F9F9F9] light:via-gray-50 light:to-[#F9F9F9]" />
 
       {/* Decorative cherry orbs (circles) */}
       <div className="absolute top-1/3 -right-48 w-96 h-96 bg-cherry/10 rounded-full blur-[128px]" />
@@ -59,11 +59,11 @@ export default function Multimedia() {
           <p className="font-[family-name:var(--font-dancing-script)] text-cherry text-xl sm:text-2xl mb-2">
             Cherry Low Photography
           </p>
-          <h2 className="font-[family-name:var(--font-permanent-marker)] text-4xl sm:text-5xl lg:text-6xl text-white tracking-wider">
+          <h2 className="font-[family-name:var(--font-permanent-marker)] text-4xl sm:text-5xl lg:text-6xl text-white light:text-ink tracking-wider">
             FOTOGRAFÍA Y VIDEOGRAFÍA
           </h2>
           <div className="mt-6 mx-auto w-24 h-1 bg-gradient-to-r from-cherry to-cherry-dark rounded-full" />
-          <p className="mt-6 text-smoke/50 max-w-2xl mx-auto text-lg">
+          <p className="mt-6 text-smoke/50 light:text-ink/60 max-w-2xl mx-auto text-lg">
             Sesiones de foto y video para tu auto. Creación de videos, shorts o reels para tus redes.
           </p>
         </motion.div>
@@ -89,17 +89,17 @@ export default function Multimedia() {
               </div>
             </div>
 
-            <p className="text-lg text-smoke/70 leading-relaxed mb-6 text-center lg:text-left">
+            <p className="text-lg text-smoke/70 light:text-ink/70 leading-relaxed mb-6 text-center lg:text-left">
               En <span className="text-cherry font-bold">Cherry Low Photography</span> nos
               especializamos en capturar la esencia de tu auto. Desde sesiones estáticas hasta
               rollings cinematográficos, creamos contenido visual que hace destacar tu máquina.
             </p>
 
-            <p className="text-smoke/50 leading-relaxed mb-4 text-center lg:text-left">
+            <p className="text-smoke/50 light:text-ink/60 leading-relaxed mb-4 text-center lg:text-left">
               Creación de videos, shorts o reels para tus redes — hacemos sesiones completas para el auto del cliente. Contenido que impacta en Instagram, TikTok y YouTube.
             </p>
 
-            <p className="text-smoke/50 leading-relaxed mb-8 text-center lg:text-left">
+            <p className="text-smoke/50 light:text-ink/60 leading-relaxed mb-8 text-center lg:text-left">
               Envíanos las fotos y videos de referencia por WhatsApp para cotizar tu sesión
               personalizada. Cada proyecto es único, justo como tu auto.
             </p>
@@ -118,7 +118,7 @@ export default function Multimedia() {
                 href={WA_VIDEO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/20 text-white font-bold uppercase tracking-wider rounded-full hover:border-cherry/50 hover:bg-white/5 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/20 light:border-ink/25 text-white light:text-ink font-bold uppercase tracking-wider rounded-full hover:border-cherry/50 hover:bg-white/5 light:hover:bg-ink/5 transition-all duration-300"
               >
                 <Film className="w-5 h-5" />
                 Cotizar Video / Reel
@@ -137,15 +137,15 @@ export default function Multimedia() {
                 transition={{ duration: 0.5, delay: index * 0.12 }}
                 className="group"
               >
-                <div className="flex gap-5 p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-cherry/20 hover:bg-white/[0.04] transition-all duration-500">
+                <div className="flex gap-5 p-6 rounded-2xl border border-white/5 light:border-ink/10 bg-white/[0.02] light:bg-ink/[0.03] hover:border-cherry/20 hover:bg-white/[0.04] light:hover:bg-ink/[0.05] transition-all duration-500">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-cherry/20 flex items-center justify-center group-hover:bg-cherry/30 transition-colors duration-300">
                     <feature.icon className="w-6 h-6 text-cherry" strokeWidth={1.5} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-white mb-1 group-hover:text-cherry transition-colors duration-300">
+                    <h3 className="text-lg font-bold text-white light:text-ink mb-1 group-hover:text-cherry transition-colors duration-300">
                       {feature.title}
                     </h3>
-                    <p className="text-sm text-smoke/50 leading-relaxed">{feature.description}</p>
+                    <p className="text-sm text-smoke/50 light:text-ink/60 leading-relaxed">{feature.description}</p>
                   </div>
                   <ArrowRight className="w-5 h-5 text-white/0 group-hover:text-cherry/60 transition-all duration-300 flex-shrink-0 mt-1" />
                 </div>
@@ -164,7 +164,7 @@ export default function Multimedia() {
         >
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-cherry/20 bg-cherry/5">
             <Camera className="w-4 h-4 text-cherry" />
-            <p className="text-smoke/60 text-sm">
+            <p className="text-smoke/60 light:text-ink/60 text-sm">
               Hacemos sesiones completas de foto y video para el auto del cliente — cada sesión es única.
             </p>
           </div>

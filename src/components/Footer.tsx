@@ -10,8 +10,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-white/5">
-      <div className="absolute inset-0 bg-ink-light/50" />
+    <footer className="relative border-t border-white/5 light:border-ink/10">
+      <div className="absolute inset-0 bg-ink-light/50 light:bg-gray-100/50" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -25,14 +25,14 @@ export default function Footer() {
                 height={40}
                 className="rounded-full ring-1 ring-cherry/20"
               />
-              <span className="font-[family-name:var(--font-permanent-marker)] text-xl text-white tracking-wider">
+              <span className="font-[family-name:var(--font-permanent-marker)] text-xl text-white light:text-ink tracking-wider">
                 CHERRY LOW
               </span>
             </div>
             <p className="font-[family-name:var(--font-dancing-script)] text-cherry text-lg mb-4">
               Aférrate a tus sueños
             </p>
-            <p className="text-sm text-smoke/40 leading-relaxed">
+            <p className="text-sm text-smoke/40 light:text-ink/50 leading-relaxed">
               Personalización de camisetas y sudaderas. Sesiones de fotografía y video automotriz.
               Aguascalientes, México.
             </p>
@@ -40,7 +40,7 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4 className="text-white font-bold uppercase tracking-wider text-sm mb-4">
+            <h4 className="text-white light:text-ink font-bold uppercase tracking-wider text-sm mb-4">
               Navegación
             </h4>
             <ul className="space-y-3">
@@ -54,7 +54,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm text-smoke/40 hover:text-cherry transition-colors duration-300"
+                    className="text-sm text-smoke/40 light:text-ink/50 hover:text-cherry transition-colors duration-300"
                   >
                     {link.name}
                   </a>
@@ -65,10 +65,10 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-bold uppercase tracking-wider text-sm mb-4">
+            <h4 className="text-white light:text-ink font-bold uppercase tracking-wider text-sm mb-4">
               Contacto
             </h4>
-            <ul className="space-y-3 text-sm text-smoke/40">
+            <ul className="space-y-3 text-sm text-smoke/40 light:text-ink/50">
               <li>
                 <a
                   href={WA_FOOTER}
@@ -121,11 +121,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-smoke/30">
+        <div className="mt-12 pt-8 border-t border-white/5 light:border-ink/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-smoke/30 light:text-ink/40">
             &copy; {currentYear} Cherry Low Photography. Todos los derechos reservados.
           </p>
-          <p className="text-xs text-smoke/30">
+          <p className="text-xs text-smoke/30 light:text-ink/40">
             Envíos a todo México
           </p>
         </div>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { background: #111; padding: 50px; color: white; font-family: sans-serif; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    background: #DC2626;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    /* Create a cherry shape mask */
+    /* top half is a rectangle with rounded top corners */
+    /* bottom half is two merging circles */
+    -webkit-mask-image: 
+      radial-gradient(circle at 25% 100%, black 25%, transparent 26%),
+      radial-gradient(circle at 75% 100%, black 25%, transparent 26%),
+      linear-gradient(black, black);
+    -webkit-mask-size: 100% 100%, 100% 100%, 100% 80%;
+    -webkit-mask-position: 0 0, 0 0, center top;
+    -webkit-mask-repeat: no-repeat;
+  }
+</style>
+</head>
+<body>
+  <div class="btn">Catálogo en Existencia</div>
+</body>
+</html>

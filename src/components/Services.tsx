@@ -36,7 +36,7 @@ const services = [
 export default function Services() {
   return (
     <section id="servicios" className="relative py-28 sm:py-36">
-      <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink-light/50 to-ink" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink-light/50 to-ink light:from-[#F9F9F9] light:via-gray-50 light:to-[#F9F9F9]" />
 
       {/* Decorative cherry orbs */}
       <div className="absolute top-1/2 -left-48 w-96 h-96 bg-cherry/5 rounded-full blur-[150px]" />
@@ -55,11 +55,11 @@ export default function Services() {
           <p className="font-[family-name:var(--font-dancing-script)] text-cherry text-xl sm:text-2xl mb-2">
             Tu auto en las mejores manos
           </p>
-          <h2 className="font-[family-name:var(--font-permanent-marker)] text-4xl sm:text-5xl lg:text-6xl text-white tracking-wider">
+          <h2 className="font-[family-name:var(--font-permanent-marker)] text-4xl sm:text-5xl lg:text-6xl text-white light:text-ink tracking-wider">
             DETAILING &amp; TALLER
           </h2>
           <div className="mt-6 mx-auto w-24 h-1 bg-gradient-to-r from-cherry to-cherry-dark rounded-full" />
-          <p className="mt-6 text-smoke/50 max-w-2xl mx-auto text-lg">
+          <p className="mt-6 text-smoke/50 light:text-ink/60 max-w-2xl mx-auto text-lg">
             Detailing automotriz y mantenimiento mecánico en Aguascalientes. Cuidamos cada detalle de tu auto.
           </p>
         </motion.div>
@@ -79,7 +79,7 @@ export default function Services() {
                 href={`https://wa.me/524493091644?text=${service.waMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block relative h-full p-8 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm hover:border-cherry/30 hover:bg-white/[0.05] transition-all duration-500 cursor-pointer"
+                className="block relative h-full p-8 rounded-2xl border border-white/5 light:border-ink/10 bg-white/[0.02] light:bg-ink/[0.03] backdrop-blur-sm hover:border-cherry/30 hover:bg-white/[0.05] light:hover:bg-ink/[0.05] transition-all duration-500 cursor-pointer"
               >
                 {/* Tag */}
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border bg-cherry/10 text-cherry border-cherry/20">
@@ -95,10 +95,10 @@ export default function Services() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cherry transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-white light:text-ink mb-3 group-hover:text-cherry transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-smoke/50 leading-relaxed mb-6">
+                <p className="text-smoke/50 light:text-ink/60 leading-relaxed mb-6">
                   {service.description}
                 </p>
 
@@ -107,7 +107,7 @@ export default function Services() {
                   <span className="font-[family-name:var(--font-permanent-marker)] text-2xl text-cherry">
                     Cotizar
                   </span>
-                  <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-smoke/40 group-hover:text-cherry transition-colors duration-300">
+                  <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-smoke/40 light:text-ink/50 group-hover:text-cherry transition-colors duration-300">
                     <MessageCircle className="w-4 h-4" />
                     WhatsApp
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+
 @theme inline {
   --color-cherry: #DC2626;
   --color-cherry-dark: #991B1B;
@@ -26,6 +28,11 @@ body {
   overflow-x: hidden;
 }
 
+[data-theme="light"] body {
+  background: #F9F9F9;
+  color: #0A0A0A;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
@@ -33,6 +40,10 @@ body {
 
 ::-webkit-scrollbar-track {
   background: #0A0A0A;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #E5E5E5;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -154,4 +165,97 @@ body {
 ::selection {
   background-color: rgba(220, 38, 38, 0.3);
   color: #F5F5F5;
+}
+
+[data-theme="light"] ::selection {
+  background-color: rgba(220, 38, 38, 0.25);
+  color: #0A0A0A;
+}
+
+/* ═══ CHERRY SHAPE CLIP-PATH ═══ */
+.cherry-shape {
+  position: relative;
+  overflow: visible;
+}
+
+.cherry-shape-mask {
+  clip-path: url(#cherry-clip);
+  -webkit-clip-path: url(#cherry-clip);
+}
+
+/* ═══ CHERRY BUTTON ═══ */
+.cherry-btn {
+  position: relative;
+  overflow: visible;
+  /* Double-bulge cherry shape masking */
+  -webkit-mask-image: 
+    linear-gradient(black, black),
+    radial-gradient(ellipse at center, black 50%, transparent 51%),
+    radial-gradient(ellipse at center, black 50%, transparent 51%);
+  -webkit-mask-size: 
+    100% 60%,  /* top rectangle spanning 60% of height */
+    58% 80%,   /* left lobe spanning 58% width, 80% height placed at bottom */
+    58% 80%;   /* right lobe spanning 58% width, 80% height placed at bottom */
+  -webkit-mask-position: 
+    top center, 
+    bottom left, 
+    bottom right;
+  -webkit-mask-repeat: no-repeat;
+  
+  /* Standard mask for compatibility */
+  mask-image: 
+    linear-gradient(black, black),
+    radial-gradient(ellipse at center, black 50%, transparent 51%),
+    radial-gradient(ellipse at center, black 50%, transparent 51%);
+  mask-size: 
+    100% 60%, 
+    58% 80%, 
+    58% 80%;
+  mask-position: 
+    top center, 
+    bottom left, 
+    bottom right;
+  mask-repeat: no-repeat;
+  
+  /* Push padding down slightly to accommodate the lobes */
+  padding-bottom: 2rem !important; 
+}
+
+/* Stem */
+.cherry-btn::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 3px;
+  height: 16px;
+  background: linear-gradient(to bottom, #166534, #22C55E);
+  border-radius: 2px;
+  transform: translateX(-50%) rotate(-6deg);
+  transform-origin: bottom center;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+/* Leaf */
+.cherry-btn::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: calc(50% + 5px);
+  width: 18px;
+  height: 11px;
+  background: linear-gradient(135deg, #22C55E 0%, #166534 100%);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-35deg);
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.cherry-btn:hover::before {
+  transform: translateX(-50%) rotate(2deg);
+}
+
+.cherry-btn:hover::after {
+  transform: rotate(-25deg) scale(1.1);
 }

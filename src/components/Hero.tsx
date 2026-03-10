@@ -53,7 +53,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative h-screen w-full overflow-hidden bg-ink"
+      className="relative h-screen w-full overflow-hidden bg-ink light:bg-smoke"
     >
       {/* ═══ PARALLAX SLIDESHOW ═══ */}
       <AnimatePresence mode="popLayout">
@@ -279,7 +279,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-ink to-transparent z-[3]" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-ink light:from-[#F9F9F9] to-transparent z-[3]" />
     </section>
   );
 }
